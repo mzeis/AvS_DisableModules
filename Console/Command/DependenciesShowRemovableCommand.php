@@ -114,6 +114,7 @@ class DependenciesShowRemovableCommand extends \Symfony\Component\Console\Comman
             Files::setInstance(new Files($this->registrar, $this->dirSearch, $this->themePackageList));
             $this->buildReport($input->getOption(self::INPUT_KEY_OUTPUT));
             $output->writeln('<info>Report successfully processed. File "' . $input->getOption(self::INPUT_KEY_OUTPUT) . '" generated.</info>');
+            return \Magento\Framework\Console\Cli::RETURN_SUCCESS;
         } catch (\Exception $e) {
             $output->writeln(
                 '<error>Please check the path you provided. Removable Modules report generator failed with error: ' .
